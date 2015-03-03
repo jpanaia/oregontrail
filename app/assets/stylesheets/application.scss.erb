@@ -1,0 +1,190 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require font-awesome
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.cant-see-me {
+	display: none;
+}
+
+body {
+	// background-color: #FFF;
+	//background: url(<%= asset_path 'bg.jpg' %>) fixed center center no-repeat;
+	//background-size: cover;
+	// background: #70c9e7;
+	// padding-top: 40px;
+	font-family: 'Ubuntu', sans-serif;
+    background-image: url('<%= "pattern2.png" %>');
+    font-size:1.5em;
+}
+
+header {
+	text-align:center;
+	background: #fff;
+	padding: 20px 0 10px;
+}
+
+header h1 {
+	margin-bottom: -5px;
+    margin-top: 0;
+}
+
+h1 {
+	font-size: 3.5em;
+	text-transform: uppercase;
+	color: #006289;
+	font-family: 'Maiden Orange', cursive;
+}
+
+h2 {
+	color: #006289;
+	font-family: 'Ubuntu', sans-serif;
+  	text-transform: uppercase;
+  	font-size: 25px;
+  	font-weight: 700;
+}
+
+ h1 + p {
+ 	font-size: 18px;
+ 	color: #000;
+ 	font-family: 'Ubuntu', sans-serif;
+ }
+
+.fa-twitter, .fa-facebook {
+	font-size: 20px;
+}
+
+a, a:link, a:active, a:visited {
+	color: #006289
+}
+
+#map-canvas {
+	width:100%;
+	height:200px;	
+}
+
+#map-all {
+	width:100%;
+	height:400px;
+	margin-bottom: 20px;
+	border: 2px solid #0080AF;
+}
+
+.container {
+  padding-top:25px;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  // border-radius: 10px;
+}
+.navbar {
+	// margin-top: 35px;
+	margin-bottom: 0;
+	border-bottom: 2px solid #006289;
+	border-top: 2px solid #006289;
+	padding-bottom: 17px;
+	padding-top: 17px;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 700;
+    border-radius: 0;
+	text-transform:uppercase;
+	background-image: url(<%= asset_path 'pattern1.png' %>);
+}
+
+  .navbar-default .navbar-nav > li > a {
+  	color: #006289;
+  	font-size: 16px;
+  	display:inline;
+  }
+
+  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	background: none;
+  	color: #006289;
+  	opacity: .9;
+  }
+
+   .navbar-nav > li  {
+  	padding: 0 50px;
+   }
+
+  .navbar .nav {
+    width: 100%;
+    text-align: center;
+}
+
+.navbar .nav > li {
+    float: none;
+    text-align: center;
+    display: inline;
+}
+
+.col-md-4 .well {
+	background-color: #70c9e7;
+	// margin: 10px;
+	//padding: 10px;
+	border: 2px solid #0080af;
+	border-radius: 0;
+}
+
+  .col-md-4 .well h2 {
+  	margin-top: 20px;
+  }
+
+  .col-md-4 .well p {
+  	letter-spacing: 2px;
+  	color: #0081af;
+  	margin-bottom: 25px;
+  }
+
+   .col-md-4 .well h3 {
+   	color: #fff;
+   	font-family: 'Ubuntu', sans-serif;
+   	text-transform: uppercase;
+   	font-size: 12px;
+   	letter-spacing: 1px;
+   	margin-top: 0;
+   }
+
+   .col-md-4 .well h4 {
+   	color: #fff;
+   	font-family: 'Ubuntu', sans-serif;
+   	font-size: 12px;
+   	text-transform: uppercase;
+   	font-weight: 700;
+   	letter-spacing: 1px;
+   	margin-top: 0;
+   	margin-bottom: 0;
+   }
+
+   .col-md-4 a{
+   	display: block;
+   }
+
+   .col-md-4 a:hover, .col-md-4 a:active {
+   	text-decoration: none
+   }
+
+   .col-md-4 .well:hover{
+   	border: 2px solid #fff;
+   }
+
+/* Blog Post Page */
+
+#blog-post-show {
+	background: #fff;
+}
+ 
