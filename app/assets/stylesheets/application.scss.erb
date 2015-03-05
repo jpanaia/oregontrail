@@ -30,7 +30,7 @@ body {
 	// padding-top: 40px;
 	font-family: 'Ubuntu', sans-serif;
     background-image: url('<%= "pattern2.png" %>');
-    font-size:1.5em;
+    font-size:1.85em;
 }
 
 header {
@@ -71,6 +71,11 @@ h2 {
 
 a, a:link, a:active, a:visited {
 	color: #006289
+}
+
+a:hover {
+  border-bottom:2px solid #fff;
+  padding-bottom: 5px;
 }
 
 #map-canvas {
@@ -175,7 +180,9 @@ a, a:link, a:active, a:visited {
    }
 
    .col-md-4 a:hover, .col-md-4 a:active {
-   	text-decoration: none
+   	text-decoration: none;
+    border-bottom: 0;
+    padding-bottom: 0;
    }
 
    .col-md-4 .well:hover{
