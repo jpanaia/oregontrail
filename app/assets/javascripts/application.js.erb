@@ -39,7 +39,7 @@ function initialize() {
     	
     	bounds.extend(latlng);
 
-        var image = '<%= asset_path "portlandia2.png" %>'
+      var image = '<%= asset_path "portlandia2.png" %>'
     	var marker = new google.maps.Marker ({
     		position: latlng,
     		map: map,
@@ -48,12 +48,12 @@ function initialize() {
     		photo: p[4],
     		bp_id: p[5],
     		bp_title: p[6],
-            icon: image,
-            animation: google.maps.Animation.DROP
+        icon: image,
+        animation: google.maps.Animation.DROP
     	});
 
     	google.maps.event.addListener(marker, 'click', function() {
-    		infowindow.setContent('<h2>' + this.bp_title + '</h2>' + '<h4>from ' + this.title + '</h4>' + '<p>' + this.bp + '</p>' + '<p><a href="/blog_posts/' + this.bp_id + '">' + "Read More" + "</a></p>" + '<p><img src="' + this.photo + '", class="img-responsive"></p>' );
+    		infowindow.setContent('<h2>' + this.bp_title + '</h2>' + '<h4>from ' + this.title + '</h4>' + '<p>' + this.bp + '</p>' + '<p><a href="/blog_posts/' + this.bp_id + '">' + "Read Full Post" + "</a></p>" + '<p><img src="' + this.photo + '", class="img-responsive"></p>' );
     		infowindow.open(map,this);
     	});
     

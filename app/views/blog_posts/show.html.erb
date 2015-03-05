@@ -8,45 +8,48 @@
 <div class="container" id="blog-post-show">
   <div class="row">
 		<div class="col-sm-8">
-		  <h2><%= @blog_post.title %></h2>
-		  <p><span class="posted-at"><%= @blog_post.created_at.strftime('%B %d, %Y') %></span></p>
-			<p>posted by <strong><%= @blog_post.user.username %></strong>  from <%= @blog_post.address %>
-				
-		  <hr/>
-		  <p><%= @blog_post.blog_entry.html_safe %></p>
-
-			<% if @blog_post.photo.exists? %>
-			  <%= image_tag @blog_post.photo.url, class: "img-responsive" %>
-			<% end %>
-			<p>
+			<p class="pull-right">
 				<% if can? :update, @blog_post %>
 					<%= link_to edit_blog_post_path(@blog_post), class: "btn btn-default" do %>
 			      <span class="glyphicon glyphicon-pencil"></span> 
 			    <% end %>
 				<% end %>
 			</p>
+			<h3><%= @blog_post.address %></h3>
+		  <h2><%= @blog_post.title %></h2>
+			<h3><%= @blog_post.created_at.strftime('%B %e, %Y %I:%M%P %Z') %></h3>
+			<h3 class="byline"><%= @blog_post.user.username %> </h3>
+<!-- 		  <hr/>
+ -->		  <div id="blog-content">
+		  	<%= @blog_post.blog_entry.html_safe %>
+		  </div>			
 		</div>
 		<div class="col-sm-4">
 		  <div id="map-canvas"></div>
+
+		  <% if @blog_post.photo.exists? %>
+			  <%= image_tag @blog_post.photo.url(:large), class: "img-responsive" %><p class="photo-caption">Coming soon...</p>
+			<% end %>
 	  </div>
 	</div>
-
+</div>
+<div class="container" id="comments-form">
 	<% if user_signed_in? %>
-	  <h3>Leave a comment</h3>
+	  <h2>Leave a comment</h2>
 	  <%= render 'comments/form' %>
 	<% else %>
-	  <p><%= link_to "Sign in to leave a comment", new_user_session_path, class: "btn btn-default" %></p>
+	  <p><%= link_to "Sign in to leave a comment", new_user_session_path, class: "btn btn-primary btn-lg" %></p>
 	<% end %>
 
-  <hr/>
+	<hr/>
 
-		<h2>Comments</h2>
-		<% if @blog_post.comments.count != 0 %>
-		  <% @blog_post.comments.each do |comment| %>
-		    <p><span class="posted-at">posted by: <strong><%= comment.user.username %></strong> on <%= comment.created_at.strftime('%B %d, %Y at %I:%M%P') %></span> </p>
-		    <p><%= comment.comment_entry %></p>
-		  <% end %>
-	  <% else %>
-	    <p>No comments yet. Be the first!</p>
-  	<% end %>
+	<h2>Comments</h2>
+	<% if @blog_post.comments.count != 0 %>
+	  <% @blog_post.comments.each do |comment| %>
+	    <p><span class="posted-at">posted by: <strong><%= comment.user.username %></strong> on <%= comment.created_at.strftime('%B %d, %Y at %I:%M%P') %></span> </p>
+	    <p><%= comment.comment_entry %></p>
+	  <% end %>
+	<% else %>
+		<p>No comments yet. Be the first!</p>
+	<% end %>
 </div>

@@ -57,6 +57,7 @@ h2 {
   	text-transform: uppercase;
   	font-size: 25px;
   	font-weight: 700;
+    margin-top: 0;
 }
 
  h1 + p {
@@ -64,6 +65,8 @@ h2 {
  	color: #000;
  	font-family: 'Ubuntu', sans-serif;
  }
+
+
 
 .fa-twitter, .fa-facebook {
 	font-size: 20px;
@@ -76,11 +79,13 @@ a, a:link, a:active, a:visited {
 a:hover {
   border-bottom:2px solid #fff;
   padding-bottom: 5px;
+  text-decoration: none;
 }
 
 #map-canvas {
 	width:100%;
 	height:200px;	
+  margin-bottom: 20px;
 }
 
 #map-all {
@@ -92,7 +97,7 @@ a:hover {
 
 .container {
   padding-top:25px;
-  margin-bottom: 25px;
+  //margin-bottom: 25px;
   padding-bottom: 10px;
   // border-radius: 10px;
 }
@@ -175,24 +180,79 @@ a:hover {
    	margin-bottom: 0;
    }
 
-   .col-md-4 a{
-   	display: block;
-   }
 
-   .col-md-4 a:hover, .col-md-4 a:active {
-   	text-decoration: none;
-    border-bottom: 0;
-    padding-bottom: 0;
-   }
-
-   .col-md-4 .well:hover{
-   	border: 2px solid #fff;
-   }
+  
 
 /* Blog Post Page */
 
 #blog-post-show {
 	background: #fff;
+  margin-top: 25px;
+  padding-top: 25px;
+}
+
+#blog-post-show .col-sm-8, #blog-post-show .col-sm-4{
+  padding: 10px 30px 30px;
+}
+ // #blog-content p:first-child:first-letter  {
+ //   float: left; 
+ //   color: #666; 
+ //   font-size: 75px; 
+ //   line-height: 50px; 
+ //   padding-top: 4px; 
+ //   padding-right: 8px; 
+ //   padding-left: 3px; 
+ //   font-family: 'Maiden Orange', cursive;
+ // } 
+
+ #blog-post-show h3 {
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 0;
+  color: #666;
+ }
+
+ #blog-post-show h2 {
+  margin-top: 20px;
+ }
+
+ #blog-content {
+  color: #8A8A8A;
+ }
+
+ #blog-content p{
+  margin-bottom: 25px;
+ }
+
+ #blog-content p:last-child {
+  margin-bottom: 15px;
+ }
+
+#comments-form {
+  background: none;
+  margin-top: -10px;
+}
+
+h3.byline {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+input[type="file"] {
+  border-radius: 0;
+}
+
+.form-control {
+  font-size: 1.1em;
+}
+
+.form-control, .form-control:focus {
+  border: 2px solid #006289;
+  border-radius: 0;
 }
 
 .input-group .form-control {
@@ -225,5 +285,10 @@ a:hover {
     border:2px solid #fff;
     background: none;
     color: #006289;
+    padding-bottom: 10px;
+  }
+
+  a.btn-primary:hover {
+    text-decoration: none;
   }
  
