@@ -18,16 +18,17 @@
 			<h4><%= @blog_post.address %></h4>
 		  <h2><%= @blog_post.title %></h2>
 			<h3><%= @blog_post.created_at.strftime('%B %e, %Y %I:%M%P %Z') %></h3>
-			<h3 class="byline"><%= image_tag @blog_post.user.avatar.url(:tiny) %><%= @blog_post.user.username %> </h3>
+			<h3 class="byline">
+				<%= image_tag @blog_post.user.avatar.url(:tiny) if @blog_post.user.avatar.exists? %><%= @blog_post.user.username %> 
+			</h3>
 		  <div id="blog-content">
 		  	<%= @blog_post.blog_entry.html_safe %>
 		  </div>			
 		</div>
 		<div class="col-sm-4">
 		  <div id="map-canvas"></div>
-
 		  <% if @blog_post.photo.exists? %>
-			  <%= image_tag @blog_post.photo.url(:large), class: "img-responsive" %><p class="photo-caption">Coming soon...</p>
+			  <%= image_tag @blog_post.photo.url(:large), class: "img-responsive" %><p class="photo-caption" %>Coming soon...</p>
 			<% end %>
 	  </div>
 	</div>
@@ -39,13 +40,15 @@
 	<% else %>
 	  <p><%= link_to "Sign in to leave a comment", new_user_session_path, class: "btn btn-primary btn-lg" %></p>
 	<% end %>
-
-	<hr/>
+</div>
+<div class="container" id ="comments-show">
 
 	<h2>Comments</h2>
 	<% if @blog_post.comments.count != 0 %>
 	  <% @blog_post.comments.each do |comment| %>
-	    <h3 class="byline"><%= image_tag comment.user.avatar.url(:tiny) %><%= comment.user.username %> says:</h3>
+	    <h3 class="byline">
+	    	<%= image_tag comment.user.avatar.url(:tiny) if comment.user.avatar.exists? %>
+	    	<%= comment.user.username %> says:</h3>
 	    <h3><%= comment.created_at.strftime('%B %e, %Y %I:%M%P %Z') %></h3>
 	    <p><%= comment.comment_entry %></p>
 	  <% end %>

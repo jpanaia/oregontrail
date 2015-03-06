@@ -18,22 +18,24 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+$font-stack: 'Ubuntu', sans-serif
+$primary-color: #006289
+
 ///////* General */////////
 
 body
-  font-family: 'Ubuntu', sans-serif
+  font-family: $font-stack
   font-size: 16px
   background-image: url('<%= "pattern2.png" %>')
 
 h1
   font-size: 3.5em
   text-transform: uppercase
-  color: #006289
+  color: $primary-color
   font-family: 'Maiden Orange', cursive
 
 h2
-  color: #006289
-  font-family: 'Ubuntu', sans-serif
+  color: $primary-color
   text-transform: uppercase
   font-size: 1.6em
   font-weight: 700
@@ -41,13 +43,12 @@ h2
 
 h1 + p
   font-size: 18px
-  font-family: 'Ubuntu', sans-serif
   font-weight: bold
 
 a
-  color: #006289
+  color: $primary-color
   &:link, &:active, &:visited
-    color: #006289
+    color: $primary-color
   &:hover
     border-bottom: 2px solid #fff
     padding-bottom: 5px
@@ -58,13 +59,13 @@ a
 
 .btn-primary
   border-radius: 0
-  border: 2px solid #006289
+  border: 2px solid $primary-color
   background: none
-  color: #006289
+  color: $primary-color
   &:hover
     border: 2px solid #fff
     background: none
-    color: #006289
+    color: $primary-color
     padding-bottom: 10px
 
 a.btn-primary:hover
@@ -96,23 +97,22 @@ header
 
 .navbar
   margin-bottom: 0
-  border-bottom: 2px solid #006289
-  border-top: 2px solid #006289
+  border-bottom: 2px solid $primary-color
+  border-top: 2px solid $primary-color
   padding-bottom: 17px
   padding-top: 17px
-  font-family: 'Ubuntu', sans-serif
   font-weight: 700
   border-radius: 0
   text-transform: uppercase
   background-image: url('<%= asset_path "pattern1.png" %>')
 
 .navbar-default .navbar-nav > li > a
-  color: #006289
+  color: $primary-color
   font-size: 16px
   display: inline
   &:hover, &:focus
     background: none
-    color: #006289
+    color: $primary-color
     opacity: .9
 
 .navbar-nav > li
@@ -153,14 +153,12 @@ header
     margin-bottom: 25px
   h3
     color: #fff
-    font-family: 'Ubuntu', sans-serif
     text-transform: uppercase
     font-size: 12px
     letter-spacing: 1px
     margin-top: 0
   h4
     color: #fff
-    font-family: 'Ubuntu', sans-serif
     font-size: 12px
     text-transform: uppercase
     font-weight: 700
@@ -176,69 +174,63 @@ header
   padding-top: 25px
   .col-sm-8, .col-sm-4
     padding: 10px 30px 30px
+  h2
+    margin-top: 20px
   h3
-    font-family: 'Ubuntu', sans-serif
+    text-transform: uppercase
+    font-size: 12px
+    letter-spacing: 1px
+    margin: 18px 0
+    color: #666
+  h4
+    font-weight: bold
+    font-size: 14px
+    color: #999
+    margin-top: 0
+  #blog-content
+    color: #8A8A8A
+    p
+      margin-bottom: 25px
+
+#comments-form
+  background: none
+  h3
     text-transform: uppercase
     font-size: 12px
     letter-spacing: 1px
     margin: 18px 0
     color: #666
 
-#comments-form h3
-  font-family: 'Ubuntu', sans-serif
-  text-transform: uppercase
-  font-size: 12px
-  letter-spacing: 1px
-  margin: 18px 0
-  color: #666
-
-#blog-post-show
-  h4
-    font-weight: bold
-    font-size: 14px
-    color: #999
-    margin-top: 0
-  h2
-    margin-top: 20px
-
-#blog-content
-  color: #8A8A8A
-  p
-    margin-bottom: 25px
-
-#comments-form
-  background: none
-
-h3.byline
+.byline
+  h3
   border: 1px solid #ccc
   padding: 10px
   margin: 0 0 25px!important
   display: inline-block
-
-.byline img
-  margin: -11px 8px -10px -10px
+  img
+    margin: -11px 8px -10px -10px
 
 ///////* Forms */////////
 
 input[type="file"]
   border-radius: 0
 
-.form-control
-  font-size: 1em
-  border: 2px solid #006289
-  border-radius: 0
-  &:focus
-    border: 2px solid #006289
+.input-group 
+  .form-control
+    border-left: none
+    font-size: 1em
+    border: 2px solid $primary-color
+    border-left: none
     border-radius: 0
-
-.input-group .form-control
-  border: 2px solid #006289
-  border-radius: 0
-  box-shadow: none
-  border-left: none
-
-.input-group-addon
-  border-radius: 0
-  color: #006289
-  border: 2px solid #006289
-  border-right: none
+    box-shadow: none
+    background: #efefef
+    &:focus
+      border: 2px solid $primary-color
+      border-radius: 0
+      border-left: none
+      background: #fff
+  .input-group-addon
+    border-radius: 0
+    color: $primary-color
+    border: 2px solid $primary-color
+    border-right: none
