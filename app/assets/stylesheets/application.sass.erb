@@ -1,0 +1,244 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require font-awesome
+ *= require_self
+ */
+
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+///////* General */////////
+
+body
+  font-family: 'Ubuntu', sans-serif
+  font-size: 16px
+  background-image: url('<%= "pattern2.png" %>')
+
+h1
+  font-size: 3.5em
+  text-transform: uppercase
+  color: #006289
+  font-family: 'Maiden Orange', cursive
+
+h2
+  color: #006289
+  font-family: 'Ubuntu', sans-serif
+  text-transform: uppercase
+  font-size: 1.6em
+  font-weight: 700
+  margin-top: 0
+
+h1 + p
+  font-size: 18px
+  font-family: 'Ubuntu', sans-serif
+  font-weight: bold
+
+a
+  color: #006289
+  &:link, &:active, &:visited
+    color: #006289
+  &:hover
+    border-bottom: 2px solid #fff
+    padding-bottom: 5px
+    text-decoration: none
+
+.btn
+  text-transform: uppercase
+
+.btn-primary
+  border-radius: 0
+  border: 2px solid #006289
+  background: none
+  color: #006289
+  &:hover
+    border: 2px solid #fff
+    background: none
+    color: #006289
+    padding-bottom: 10px
+
+a.btn-primary:hover
+  text-decoration: none
+
+.container
+  padding-top: 25px
+  padding-bottom: 10px   
+  
+.cant-see-me
+  display: none
+
+///////* Header */////////
+
+header
+  text-align: center
+  background: #fff
+  padding: 20px 0 10px
+  h1
+    margin-bottom: -5px
+    margin-top: 0
+
+.fa-twitter, .fa-facebook
+  font-size: 20px
+
+///////* Footer */////////
+
+///////* Navbar */////////
+
+.navbar
+  margin-bottom: 0
+  border-bottom: 2px solid #006289
+  border-top: 2px solid #006289
+  padding-bottom: 17px
+  padding-top: 17px
+  font-family: 'Ubuntu', sans-serif
+  font-weight: 700
+  border-radius: 0
+  text-transform: uppercase
+  background-image: url('<%= asset_path "pattern1.png" %>')
+
+.navbar-default .navbar-nav > li > a
+  color: #006289
+  font-size: 16px
+  display: inline
+  &:hover, &:focus
+    background: none
+    color: #006289
+    opacity: .9
+
+.navbar-nav > li
+  padding: 0 50px
+
+.navbar .nav
+  width: 100%
+  text-align: center
+  > li
+    float: none
+    text-align: center
+    display: inline
+
+///////* Maps */////////
+
+#map-canvas
+  width: 100%
+  height: 200px
+  margin-bottom: 20px
+
+#map-all
+  width: 100%
+  height: 400px
+  margin-bottom: 20px
+  border: 2px solid #0080AF
+
+///////* Homepage */////////
+
+.col-md-4 .well
+  background-color: #70c9e7
+  border: 2px solid #0080af
+  border-radius: 0
+  h2
+    margin-top: 20px
+  p
+    letter-spacing: 2px
+    color: #0081af
+    margin-bottom: 25px
+  h3
+    color: #fff
+    font-family: 'Ubuntu', sans-serif
+    text-transform: uppercase
+    font-size: 12px
+    letter-spacing: 1px
+    margin-top: 0
+  h4
+    color: #fff
+    font-family: 'Ubuntu', sans-serif
+    font-size: 12px
+    text-transform: uppercase
+    font-weight: 700
+    letter-spacing: 1px
+    margin-top: 0
+    margin-bottom: 0
+
+///////* Blog Post Show */////////
+
+#blog-post-show
+  background: #fff
+  margin-top: 25px
+  padding-top: 25px
+  .col-sm-8, .col-sm-4
+    padding: 10px 30px 30px
+  h3
+    font-family: 'Ubuntu', sans-serif
+    text-transform: uppercase
+    font-size: 12px
+    letter-spacing: 1px
+    margin: 18px 0
+    color: #666
+
+#comments-form h3
+  font-family: 'Ubuntu', sans-serif
+  text-transform: uppercase
+  font-size: 12px
+  letter-spacing: 1px
+  margin: 18px 0
+  color: #666
+
+#blog-post-show
+  h4
+    font-weight: bold
+    font-size: 14px
+    color: #999
+    margin-top: 0
+  h2
+    margin-top: 20px
+
+#blog-content
+  color: #8A8A8A
+  p
+    margin-bottom: 25px
+
+#comments-form
+  background: none
+
+h3.byline
+  border: 1px solid #ccc
+  padding: 10px
+  margin: 0 0 25px!important
+  display: inline-block
+
+.byline img
+  margin: -11px 8px -10px -10px
+
+///////* Forms */////////
+
+input[type="file"]
+  border-radius: 0
+
+.form-control
+  font-size: 1em
+  border: 2px solid #006289
+  border-radius: 0
+  &:focus
+    border: 2px solid #006289
+    border-radius: 0
+
+.input-group .form-control
+  border: 2px solid #006289
+  border-radius: 0
+  box-shadow: none
+  border-left: none
+
+.input-group-addon
+  border-radius: 0
+  color: #006289
+  border: 2px solid #006289
+  border-right: none

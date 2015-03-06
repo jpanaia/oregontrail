@@ -19,8 +19,7 @@
 		  <h2><%= @blog_post.title %></h2>
 			<h3><%= @blog_post.created_at.strftime('%B %e, %Y %I:%M%P %Z') %></h3>
 			<h3 class="byline"><%= image_tag @blog_post.user.avatar.url(:tiny) %><%= @blog_post.user.username %> </h3>
-<!-- 		  <hr/>
- -->		  <div id="blog-content">
+		  <div id="blog-content">
 		  	<%= @blog_post.blog_entry.html_safe %>
 		  </div>			
 		</div>
@@ -46,7 +45,8 @@
 	<h2>Comments</h2>
 	<% if @blog_post.comments.count != 0 %>
 	  <% @blog_post.comments.each do |comment| %>
-	    <p><span class="posted-at">posted by: <strong><%= comment.user.username %></strong> on <%= comment.created_at.strftime('%B %d, %Y at %I:%M%P') %></span> </p>
+	    <h3 class="byline"><%= image_tag comment.user.avatar.url(:tiny) %><%= comment.user.username %> says:</h3>
+	    <h3><%= comment.created_at.strftime('%B %e, %Y %I:%M%P %Z') %></h3>
 	    <p><%= comment.comment_entry %></p>
 	  <% end %>
 	<% else %>
