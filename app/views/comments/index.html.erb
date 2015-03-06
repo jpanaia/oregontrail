@@ -1,27 +1,28 @@
-<h1>Listing comments</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Author</th>
-      <th>Comment entry</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <h2>Listing comments</h2>
 
-  <tbody>
-    <% @comments.each do |comment| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= comment.user.email %></td>
-        <td><%= comment.comment_entry %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Author</th>
+        <th>Comment entry</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td><%= comment.user_id %></td>
+          <td><%= comment.comment_entry %></td>
+          <td><%= link_to 'Show', comment %></td>
+          <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+          <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Comment', new_comment_path %>
+<%#= link_to 'New Comment', new_comment_path %>
+</div>

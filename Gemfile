@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.3'
+gem 'bootstrap_form'
 gem 'cancan'
 gem 'geocoder'
 gem 'figaro'

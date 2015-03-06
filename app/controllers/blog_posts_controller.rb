@@ -9,6 +9,10 @@ class BlogPostsController < ApplicationController
     @latlongarray = BlogPost.all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:medium), blog_post.id, blog_post.title]}
   end
 
+  def showusers
+    @users = User.all
+  end
+
   # GET /blog_posts/1
   # GET /blog_posts/1.json
   def show

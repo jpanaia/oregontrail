@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require font-awesome
+ *= require rails_bootstrap_forms
  *= require_self
  */
 
@@ -22,12 +23,16 @@ $font-stack: 'Ubuntu', sans-serif
 $primary-color: #006289
 
 ///////* General */////////
+html 
+  position: relative
+  min-height: 100%
 
 body
   font-family: $font-stack
   font-size: 16px
   background-image: url('<%= "pattern2.png" %>')
-
+  margin-bottom: 104px
+  padding-bottom: 25px
 h1
   font-size: 3.5em
   text-transform: uppercase
@@ -91,11 +96,9 @@ header
 .fa-twitter, .fa-facebook
   font-size: 20px
 
-///////* Footer */////////
-
 ///////* Navbar */////////
 
-.navbar
+.navbar, footer
   margin-bottom: 0
   border-bottom: 2px solid $primary-color
   border-top: 2px solid $primary-color
@@ -114,6 +117,7 @@ header
     background: none
     color: $primary-color
     opacity: .9
+    border-bottom: none
 
 .navbar-nav > li
   padding: 0 50px
@@ -125,6 +129,19 @@ header
     float: none
     text-align: center
     display: inline
+
+///////* Footer */////////
+
+footer 
+  border-bottom: none
+  border-right: none
+  border-left: none
+  padding: 40px 0
+  position: absolute
+  bottom: 0
+  width: 100%
+  height: 104px
+  color: #666
 
 ///////* Maps */////////
 
@@ -210,6 +227,10 @@ header
   img
     margin: -11px 8px -10px -10px
 
+#comments-show
+  background: #fff
+  padding: 20px
+
 ///////* Forms */////////
 
 input[type="file"]
@@ -234,3 +255,30 @@ input[type="file"]
     color: $primary-color
     border: 2px solid $primary-color
     border-right: none
+
+///////* Errors */////////
+
+.alert 
+  border-radius: 0
+  margin-bottom: 0
+
+#error_explanation 
+  width: 400px
+  border: 2px solid red
+  padding: 7px
+  padding-bottom: 12px
+  margin-bottom: 20px
+  background-color: #f0f0f0
+  h2 
+    text-align: left
+    font-weight: bold
+    padding: 5px 5px 5px 15px
+    font-size: 12px
+    //margin: -7px
+    color: #c00
+  p 
+    color: #333
+    margin-bottom: 0
+    padding: 5px
+  ul li 
+    list-style: square
