@@ -105633,3 +105633,825 @@ Started GET "/assets/pattern2.png" for ::1 at 2015-03-05 17:42:21 -0500
 
 
 Started GET "/assets/pattern1.png" for ::1 at 2015-03-05 17:42:21 -0500
+
+
+Started GET "/" for ::1 at 2015-03-05 18:56:06 -0500
+Processing by BlogPostsController#index as HTML
+  [1m[35mBlogPost Load (7.8ms)[0m  SELECT "blog_posts".* FROM "blog_posts"
+  [1m[36mBlogPost Load (0.4ms)[0m  [1mSELECT "blog_posts".* FROM "blog_posts"  ORDER BY "blog_posts"."created_at" DESC[0m
+  Rendered blog_posts/index.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 5351ms (Views: 5309.0ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/assets/blog_posts.css?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/comments.css?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/font-awesome.css?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/jquery.validate.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/blog_posts.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/comments.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/fontawesome-webfont.woff2?v=4.3.0" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/pattern1.png" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/assets/pattern2.png" for ::1 at 2015-03-05 18:56:12 -0500
+
+
+Started GET "/blog_posts/1" for ::1 at 2015-03-05 18:56:29 -0500
+Processing by BlogPostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBlogPost Load (1.3ms)[0m  SELECT  "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."blog_post_id" = ?  [["blog_post_id", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blog_post_id" = ?[0m  [["blog_post_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered blog_posts/show.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 290ms (Views: 272.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/blog_posts.css?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/comments.css?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/font-awesome.css?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/jquery.validate.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/blog_posts.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/comments.js?body=1" for ::1 at 2015-03-05 18:56:29 -0500
+
+
+Started GET "/assets/pattern1.png" for ::1 at 2015-03-05 18:56:30 -0500
+
+
+Started GET "/assets/pattern2.png" for ::1 at 2015-03-05 18:56:30 -0500
+
+
+Started GET "/users/sign_up" for ::1 at 2015-03-05 18:56:39 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 221ms (Views: 217.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/blog_posts.css?body=1" for ::1 at 2015-03-05 18:56:39 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for ::1 at 2015-03-05 18:56:39 -0500
+
+
+Started GET "/assets/comments.css?body=1" for ::1 at 2015-03-05 18:56:39 -0500
+
+
+Started GET "/assets/font-awesome.css?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/jquery.validate.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/blog_posts.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/comments.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/pattern2.png" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/pattern1.png" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for ::1 at 2015-03-05 18:56:40 -0500
+
+
+Started GET "/users/sign_in" for ::1 at 2015-03-05 18:56:42 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 212ms (Views: 209.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/font-awesome.css?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/blog_posts.css?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/jquery.validate.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/blog_posts.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/comments.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff2" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/pattern2.png" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/assets/pattern1.png" for ::1 at 2015-03-05 18:56:42 -0500
+
+
+Started GET "/" for ::1 at 2015-03-05 18:56:45 -0500
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (8.2ms)[0m  [1mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[35mBlogPost Load (0.3ms)[0m  SELECT "blog_posts".* FROM "blog_posts"  ORDER BY "blog_posts"."created_at" DESC
+  Rendered blog_posts/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 208ms (Views: 191.6ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/assets/font-awesome.css?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/blog_posts.css?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/comments.css?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/jquery.validate.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/blog_posts.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/comments.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/pattern1.png" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/assets/pattern2.png" for ::1 at 2015-03-05 18:56:45 -0500
+
+
+Started GET "/" for ::1 at 2015-03-05 19:09:53 -0500
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (4.4ms)[0m  [1mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[35mBlogPost Load (6.9ms)[0m  SELECT "blog_posts".* FROM "blog_posts"  ORDER BY "blog_posts"."created_at" DESC
+  Rendered blog_posts/index.html.erb within layouts/application (51.0ms)
+Completed 200 OK in 585ms (Views: 448.0ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/font-awesome.css?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/blog_posts.css?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for ::1 at 2015-03-05 19:09:54 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/jquery.validate.js?body=1" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/comments.js?body=1" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/blog_posts.js?body=1" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/pattern2.png" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/fontawesome-webfont.woff2?v=4.3.0" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/pattern1.png" for ::1 at 2015-03-05 19:09:55 -0500
+
+
+Started GET "/assets/portlandia2.png" for ::1 at 2015-03-05 19:09:57 -0500
+
+
+Started GET "/blog_posts/2" for ::1 at 2015-03-05 19:10:17 -0500
+Processing by BlogPostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBlogPost Load (0.7ms)[0m  [1mSELECT  "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_post_id" = ?[0m  [["blog_post_id", 2]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_post_id" = ?  [["blog_post_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered blog_posts/show.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 215ms (Views: 210.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/comments.css?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/blog_posts.css?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/font-awesome.css?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/jquery.validate.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/blog_posts.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/comments.js?body=1" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/pattern2.png" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/pattern1.png" for ::1 at 2015-03-05 19:10:18 -0500
+
+
+Started GET "/assets/portlandia2.png" for ::1 at 2015-03-05 19:10:19 -0500
+
+
+Started GET "/" for ::1 at 2015-03-05 19:15:03 -0500
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (2.3ms)[0m  [1mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[35mBlogPost Load (0.6ms)[0m  SELECT "blog_posts".* FROM "blog_posts"  ORDER BY "blog_posts"."created_at" DESC
+  Rendered blog_posts/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 383ms (Views: 351.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/blog_posts.css?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/comments.css?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/font-awesome.css?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/jquery.validate.js?body=1" for ::1 at 2015-03-05 19:15:03 -0500
+
+
+Started GET "/assets/blog_posts.js?body=1" for ::1 at 2015-03-05 19:15:04 -0500
+
+
+Started GET "/assets/comments.js?body=1" for ::1 at 2015-03-05 19:15:04 -0500
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for ::1 at 2015-03-05 19:15:04 -0500
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-03-05 19:15:04 -0500
+
+
+Started GET "/assets/pattern2.png" for ::1 at 2015-03-05 19:15:04 -0500
+
+
+Started GET "/assets/pattern1.png" for ::1 at 2015-03-05 19:15:04 -0500
+
+
+Started GET "/assets/portlandia2.png" for ::1 at 2015-03-05 19:15:04 -0500
+
+
+Started GET "/blog_posts/1" for ::1 at 2015-03-05 19:15:16 -0500
+Processing by BlogPostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBlogPost Load (0.8ms)[0m  [1mSELECT  "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."blog_post_id" = ?[0m  [["blog_post_id", 1]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blog_post_id" = ?  [["blog_post_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered blog_posts/show.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 311ms (Views: 306.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/blog_posts.css?body=1" for ::1 at 2015-03-05 19:15:16 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for ::1 at 2015-03-05 19:15:16 -0500
+
+
+Started GET "/assets/font-awesome.css?body=1" for ::1 at 2015-03-05 19:15:16 -0500
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/comments.css?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/jquery.validate.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/blog_posts.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/comments.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/pattern2.png" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/pattern1.png" for ::1 at 2015-03-05 19:15:17 -0500
+
+
+Started GET "/assets/portlandia2.png" for ::1 at 2015-03-05 19:15:18 -0500
