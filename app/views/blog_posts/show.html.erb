@@ -23,7 +23,9 @@
 			</h3>
 		  <div id="blog-content">
 		  	<%= @blog_post.blog_entry.html_safe %>
-		  </div>			
+		  </div>
+		  <%= link_to "Previous Post", blog_post_path(id: @blog_post.id) %>
+		  <%= link_to "Next Post", blog_post_path(id: @blog_post.id.next) %>			
 		</div>
 		<div class="col-sm-4">
 		  <div id="map-canvas"></div>
@@ -33,26 +35,32 @@
 	  </div>
 	</div>
 </div>
-<div class="container" id="comments-form">
-	<% if user_signed_in? %>
-	  <h2>Leave a comment</h2>
-	  <%= render 'comments/form' %>
-	<% else %>
-	  <p><%= link_to "Sign in to leave a comment", new_user_session_path, class: "btn btn-primary btn-lg" %></p>
-	<% end %>
-</div>
-<div class="container" id ="comments-show">
-
-	<h2>Comments</h2>
-	<% if @blog_post.comments.count != 0 %>
-	  <% @blog_post.comments.each do |comment| %>
-	    <h3 class="byline">
-	    	<%= image_tag comment.user.avatar.url(:tiny) if comment.user.avatar.exists? %>
-	    	<%= comment.user.username %> says:</h3>
-	    <h3><%= comment.created_at.strftime('%B %e, %Y %I:%M%P %Z') %></h3>
-	    <p><%= comment.comment_entry %></p>
-	  <% end %>
-	<% else %>
-		<p>No comments yet. Be the first!</p>
-	<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Comments</h2>
+			<div id="comments-show">
+			<% if @blog_post.comments.count != 0 %>
+			  <% @blog_post.comments.order(created_at: :desc).each do |comment| %>
+			  	<h3><%= comment.created_at.strftime('%B %e, %Y %I:%M%P %Z') %></h3>
+			    <h3 class="byline">
+			    	<%= image_tag comment.user.avatar.url(:tiny) if comment.user.avatar.exists? %>
+			    	<%= comment.user.username %> says:</h3>
+			    <p><%= comment.comment_entry %></p>
+			    <hr/>
+			  <% end %>
+			<% else %>
+				<p>No comments yet. Be the first!</p>
+			<% end %>
+		</div>
+		</div>
+		<div class="col-md-6" id ="comments-form">
+		<% if user_signed_in? %>
+			  <h2>Leave a comment</h2>
+			  <%= render 'comments/form' %>
+			<% else %>
+			  <p><%= link_to "Sign in to leave a comment", new_user_session_path, class: "btn btn-primary btn-lg" %></p>
+			<% end %>
+		</div>
+	</div>
 </div>

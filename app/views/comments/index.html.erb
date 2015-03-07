@@ -6,7 +6,8 @@
     <thead>
       <tr>
         <th>Author</th>
-        <th>Comment entry</th>
+        <th>Comment</th>
+        <th>Blog Post Title</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -16,9 +17,13 @@
         <tr>
           <td><%= comment.user_id %></td>
           <td><%= comment.comment_entry %></td>
-          <td><%= link_to 'Show', comment %></td>
-          <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-          <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= comment.blog_post.title %></td>
+           <!--<td><%= link_to 'Show', comment %></td>
+          <td><%#= link_to 'Edit', edit_comment_path(comment) %></td>-->
+          <td><%= link_to comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" do %>
+             <span class="glyphicon glyphicon-trash"></span> 
+          <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
