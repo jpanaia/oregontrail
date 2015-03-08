@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :comment_entry, class:"sr-only" %>
-    <%= f.text_area :comment_entry, class: "form-control", placeholder: "Enter your comment here, but keep it clean. My grandmother is reading this!", rows: 5, required: "required" %>
+    <%= f.text_area :comment_entry, class: "form-control", placeholder: "Enter your comment here, but keep it clean. My grandmother is reading this!", rows: 10, required: "required" %>
   </div>
   <div class="cant-see-me">
     <%= f.number_field :blog_post_id, value: @blog_post.id %>

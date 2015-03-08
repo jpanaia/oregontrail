@@ -18,6 +18,8 @@ class BlogPostsController < ApplicationController
   def show
     @blog_posts = BlogPost.all
     @comment = Comment.new
+    @date = @blog_post.created_at.strftime('%B %e, %Y')
+    @time = @blog_post.created_at.strftime('%-I:%M%P %Z')
   end
 
   # GET /blog_posts/new
