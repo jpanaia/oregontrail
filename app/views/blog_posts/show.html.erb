@@ -17,15 +17,30 @@
 			</p>
 			<h4><%= @blog_post.address %></h4>
 		  <h2><%= @blog_post.title %></h2>
-			<h3><%= @blog_post.created_at.strftime('%B %e, %Y %I:%M%P %Z') %></h3>
+			<h3><%= @blog_post.created_at.strftime('%B %e, %Y   %-I:%M%P %Z') %></h3>
 			<h3 class="byline">
-				<%= image_tag @blog_post.user.avatar.url(:tiny) if @blog_post.user.avatar.exists? %><%= @blog_post.user.username %> 
+				<%= image_tag @blog_post.user.avatar.url(:thumb) if @blog_post.user.avatar.exists? %><%= @blog_post.user.username %> 
 			</h3>
 		  <div id="blog-content">
 		  	<%= @blog_post.blog_entry.html_safe %>
 		  </div>
-		  <%= link_to "Previous Post", blog_post_path(id: @blog_post.id) %>
-		  <%= link_to "Next Post", blog_post_path(id: @blog_post.id.next) %>			
+		  <hr/>
+      <div class="row">
+      	<div class="col-sm-6">
+				  <% if @blog_post.id != @blog_posts.first.id %>
+				    <%= link_to blog_post_path(id: @blog_post.prev) do %>
+				      <span class="fa fa-hand-o-left"></span> <%=@blog_post.prev.title %> 
+				    <% end %>
+				  <% end %>
+        </div>
+        <div class="col-sm-6">
+			    <% if @blog_post.id != @blog_posts.last.id %>
+				    <%= link_to blog_post_path(id: @blog_post.next) do %>
+				     <%=@blog_post.next.title %> <span class="fa fa-hand-o-right"></span> 
+				    <% end %>	
+				  <% end %>
+				</div>
+		  </div>
 		</div>
 		<div class="col-sm-4">
 		  <div id="map-canvas"></div>
@@ -37,24 +52,31 @@
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-md-6">
-			<h2>Comments</h2>
+		<div class="col-md-8">
+			<h2><%= @blog_post.comments.count %> Comments</h2>
 			<div id="comments-show">
-			<% if @blog_post.comments.count != 0 %>
-			  <% @blog_post.comments.order(created_at: :desc).each do |comment| %>
-			  	<h3><%= comment.created_at.strftime('%B %e, %Y %I:%M%P %Z') %></h3>
-			    <h3 class="byline">
-			    	<%= image_tag comment.user.avatar.url(:tiny) if comment.user.avatar.exists? %>
-			    	<%= comment.user.username %> says:</h3>
-			    <p><%= comment.comment_entry %></p>
-			    <hr/>
-			  <% end %>
-			<% else %>
-				<p>No comments yet. Be the first!</p>
-			<% end %>
+				<% @blog_post.comments.order(created_at: :desc).each do |comment| %>
+				  <div class="row">
+						<div class="col-xs-2">
+							<%= image_tag comment.user.avatar.url(:thumb) %>
+						</div>
+						<div class="col-xs-10">
+							<% if @blog_post.comments.count != 0 %>	
+							  <h2><%= comment.user.username %></h2>
+							  <h3><%= comment.created_at.strftime('%B %e, %Y %-I:%M%P %Z') %></h3>   
+							   <p><%= comment.comment_entry %></p>
+							   
+							<% else %>
+								<p>No comments yet. Be the first!</p>
+							<% end %>
+						</div>
+
+					</div>
+					<hr/>
+				<% end %>
+		  </div>
 		</div>
-		</div>
-		<div class="col-md-6" id ="comments-form">
+		<div class="col-md-4" id ="comments-form">
 		<% if user_signed_in? %>
 			  <h2>Leave a comment</h2>
 			  <%= render 'comments/form' %>

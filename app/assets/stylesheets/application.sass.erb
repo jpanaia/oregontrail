@@ -21,6 +21,9 @@
 
 $font-stack: 'Ubuntu', sans-serif
 $primary-color: #006289
+$light-blue: rgb(48, 157, 194)
+$grey: #8A8A8A
+$dark-grey: #333
 
 ///////* General */////////
 html 
@@ -33,6 +36,7 @@ body
   background-image: url('<%= "pattern2.png" %>')
   margin-bottom: 104px
   padding-bottom: 25px
+  color: $dark-grey
 h1
   font-size: 3.5em
   text-transform: uppercase
@@ -189,8 +193,9 @@ footer
   background: #fff
   margin-top: 25px
   padding-top: 25px
+  color: $grey
   .col-sm-8, .col-sm-4
-    padding: 10px 30px 30px
+    padding: 10px 30px 20px
   h2
     margin-top: 20px
   h3
@@ -205,9 +210,21 @@ footer
     color: #999
     margin-top: 0
   #blog-content
-    color: #8A8A8A
     p
       margin-bottom: 25px
+  a:hover
+    color: $light-blue
+  .col-sm-8
+    .col-sm-6
+      a 
+        color: $light-blue
+        font-size: 0.9em
+        text-transform: uppercase
+      a:hover 
+        color: $primary-color
+    .col-sm-6:last-child
+      text-align: right
+
 
 #comments-form
   background: none
@@ -217,6 +234,11 @@ footer
     letter-spacing: 1px
     margin: 18px 0
     color: #666
+  textarea
+    border-radius: 0
+    border: 0
+    padding: 20px
+    font-size: 1em
 
 .byline
   h3
@@ -225,7 +247,7 @@ footer
   margin: 0 0 25px!important
   display: inline-block
   img
-    margin: -11px 8px -10px -10px
+    margin: -10px 8px -10px -10px
 
 #comments-show
   background: #fff
@@ -233,6 +255,7 @@ footer
   // margin-top: 20px
   h2
     margin: 10px 0 0
+    text-transform: capitalize
   h3
     text-transform: uppercase
     font-size: 12px
@@ -244,6 +267,8 @@ footer
     font-size: 14px
     color: #999
     margin-top: 0
+  img 
+    // border-radius: 100px
 
 ///////* Forms */////////
 
@@ -291,7 +316,6 @@ input[type="file"]
     //margin: -7px
     color: #c00
   p 
-    color: #333
     margin-bottom: 0
     padding: 5px
   ul li 

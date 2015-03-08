@@ -7,5 +7,13 @@ class BlogPost < ActiveRecord::Base
 
 	has_many :comments
 	belongs_to :user
+
+  def next
+    BlogPost.where("id > ?", id).first
+  end
+
+  def prev
+    BlogPost.where("id < ?", id).last 
+  end
 	
 end
