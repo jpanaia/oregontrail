@@ -16,6 +16,7 @@ gem 'figaro'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'font-awesome-rails'
 gem 'jquery-validation-rails'
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'byebug'
