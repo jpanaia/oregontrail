@@ -1,6 +1,3 @@
-<%= javascript_tag do %>    
-  sites= <%=raw @latlongarray %>; 
-<% end %>
 <div class="container">
   <div id="map-all"></div>
   <% @blog_posts.each_slice(3) do |blog_post| %>
@@ -31,3 +28,81 @@
     </div>  <!-- end of row -->
   <% end %>
 </div>
+
+<%= javascript_tag do %>    
+  sites= <%=raw @latlongarray %>; 
+<% end %>
+
+<script>
+function initialize() {
+   
+  var mapOptions = {
+    zoom: 15,
+    scrollwheel: false,   
+    center: new google.maps.LatLng(42.35804, -71.057329)
+  }
+
+    var map = new google.maps.Map(document.getElementById('map-all'), mapOptions);
+    var bounds = new google.maps.LatLngBounds();
+    var infowindow = new google.maps.InfoWindow();
+    
+    for(var i in sites)
+    {
+      var p = sites[i];
+      var latlng = new google.maps.LatLng(p[1], p[2]);
+      
+      bounds.extend(latlng);
+
+      var image = '<%= asset_path "portlandia2.png" %>'
+      var marker = new google.maps.Marker ({
+        position: latlng,
+        map: map,
+        title: p[0],
+        bp: p[3],
+        photo: p[4],
+        bp_id: p[5],
+        bp_title: p[6],
+        icon: image,
+        animation: google.maps.Animation.DROP
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent('<h2>' + this.bp_title + '</h2>' + '<h4>from ' + this.title + '</h4>' + '<p>' + this.bp + '</p>' + '<p><a href="/blog_posts/' + this.bp_id + '">' + "Read Full Post" + "</a></p>" + '<p><img src="' + this.photo + '", class="img-responsive"></p>' );
+        infowindow.open(map,this);
+      });
+    
+    map.fitBounds(bounds);
+
+    var lineSymbol = {
+      path: 'M 0,-1 0,1',
+      scale: 4,
+      strokeOpacity: 1,
+      strokeColor: '#393'
+    };
+
+    var lineCoordinates = [];
+
+    for(var x in sites)
+    {
+      n = sites[x];
+      lineCoordinates.push(new google.maps.LatLng(n[1], n[2]));          
+    }
+
+    var linePath;
+      createPolyline(map, lineCoordinates, lineSymbol);
+    }
+
+    function createPolyline(map,lineCoordinates,lineSymbol){
+      linePath = new google.maps.Polyline({
+        path: lineCoordinates,
+        geodesic: true,
+        strokeColor: '#006289',
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+       });
+     linePath.setMap(map);
+    } 
+  } // end loop
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>

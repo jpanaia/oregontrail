@@ -1,10 +1,3 @@
-<%= javascript_tag do %>
-   latitude = '<%= j @blog_post.latitude.to_s %>';
-   longitude = '<%= j @blog_post.longitude.to_s %>';
-   address = '<%= j @blog_post.address %>';
-   blog_entry = '<%= j @blog_post.blog_entry %>';
-<% end %>
-
 <div class="container" id="blog-post-show">
   <div class="row">
 		<div class="col-sm-8">
@@ -27,19 +20,19 @@
 		  <hr/>
       <div class="row">
       	<div class="col-sm-6">
-				  <% if @blog_post.id != @blog_posts.first.id %>
-				    <%= link_to blog_post_path(id: @blog_post.prev) do %>
-				      <span class="fa fa-hand-o-left"></span> <%=@blog_post.prev.title %> 
-				    <% end %>
-				  <% end %>
+		  <% if @blog_post.id != @blog_posts.first.id %>
+		    <%= link_to blog_post_path(id: @blog_post.prev) do %>
+		      <span class="fa fa-hand-o-left"></span> <%=@blog_post.prev.title %> 
+		    <% end %>
+		  <% end %>
         </div>
         <div class="col-sm-6">
-			    <% if @blog_post.id != @blog_posts.last.id %>
-				    <%= link_to blog_post_path(id: @blog_post.next) do %>
-				     <%=@blog_post.next.title %> <span class="fa fa-hand-o-right"></span> 
-				    <% end %>	
-				  <% end %>
-				</div>
+		    <% if @blog_post.id != @blog_posts.last.id %>
+			    <%= link_to blog_post_path(id: @blog_post.next) do %>
+			     <%=@blog_post.next.title %> <span class="fa fa-hand-o-right"></span> 
+			    <% end %>	
+			  <% end %>
+			</div>
 		  </div>
 		</div>
 		<div class="col-sm-4">
@@ -53,27 +46,29 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">
-			<h2><%= @blog_post.comments.count %> Comments</h2>
-			<div id="comments-show">
-				<% @blog_post.comments.order(created_at: :desc).each do |comment| %>
-				  <div class="row">
-						<div class="col-xs-2">
-							<%= image_tag comment.user.avatar.url(:thumb) %>
-						</div>
-						<div class="col-xs-10">
-							<% if @blog_post.comments.count != 0 %>	
+			<% if @blog_post.comments.count > 0 %>
+				<h2><%= @blog_post.comments.count %> Comments</h2>
+				<div id="comments-show">
+					<% @blog_post.comments.order(created_at: :desc).each do |comment| %>
+					  <div class="row">
+							<div class="col-xs-2">
+								<%= image_tag comment.user.avatar.url(:thumb) %>
+							</div>
+							<div class="col-xs-10">
 							  <h2><%= comment.user.username %></h2>
 							  <h3><%= @date %> &nbsp; &nbsp;<%= @time %></h3>   
-							   <p><%= comment.comment_entry %></p>
-							<% else %>
-								<p>No comments yet. Be the first!</p>
-							<% end %>
+							  <p><%= comment.comment_entry %></p>
+							</div>
 						</div>
-
-					</div>
-					<hr/>
-				<% end %>
-		  </div>
+						<hr/>
+					<% end %>
+				</div>
+			<% else %>
+				<h2>No Comments</h2>
+				<div id="comments-show">
+					<p>No comments yet. Be the first!</p>
+				</div>
+			<% end %>
 		</div>
 		<div class="col-md-4" id ="comments-form">
 		<% if user_signed_in? %>
@@ -85,3 +80,36 @@
 		</div>
 	</div>
 </div>
+
+<%= javascript_tag do %>
+   latitude = '<%= j @blog_post.latitude.to_s %>';
+   longitude = '<%= j @blog_post.longitude.to_s %>';
+   address = '<%= j @blog_post.address %>';
+   blog_entry = '<%= j @blog_post.blog_entry %>';
+<% end %>
+
+<script>
+
+function initialize() {
+    var myLatlng = new google.maps.LatLng(latitude,longitude);
+
+    var mapOptions = {
+       zoom: 5,
+       scrollwheel: false,   
+       center: myLatlng
+    }
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    var image = '<%= asset_path "portlandia2.png" %>'
+    
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: address,
+      icon: image,
+      animation: google.maps.Animation.DROP
+    });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>

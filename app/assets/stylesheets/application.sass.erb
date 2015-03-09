@@ -33,7 +33,7 @@ html
 body
   font-family: $font-stack
   font-size: 16px
-  background-image: url('<%= "pattern2.png" %>')
+  background-image: url('<%= asset_path "pattern2.png" %>')
   margin-bottom: 104px
   padding-bottom: 25px
   color: $dark-grey
@@ -209,6 +209,13 @@ footer
     font-size: 14px
     color: #999
     margin-top: 0
+  h3.byline
+    border: 1px solid #ccc
+    padding: 10px
+    margin: 0 0 25px!important
+    display: inline-block
+    img
+      margin: -10px 8px -10px -10px
   #blog-content
     p
       margin-bottom: 25px
@@ -240,14 +247,7 @@ footer
     padding: 20px
     font-size: 1em
 
-.byline
-  h3
-  border: 1px solid #ccc
-  padding: 10px
-  margin: 0 0 25px!important
-  display: inline-block
-  img
-    margin: -10px 8px -10px -10px
+
 
 #comments-show
   background: #fff
