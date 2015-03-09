@@ -59,14 +59,14 @@ function initialize() {
         title: p[0],
         bp: p[3],
         photo: p[4],
-        bp_id: p[5],
+        f_id: p[5],
         bp_title: p[6],
         icon: image,
         animation: google.maps.Animation.DROP
       });
 
       google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent('<div class="row" id="info-window">' + '<div class="col-xs-4">' + '<img src="' + this.photo + '", class="img-responsive">' + '</div>' + '<div class="col-xs-8">' +  '<h4>' + this.title + '</h4>' + '<h2>' + this.bp_title + '</h2>' + '<a href="/blog_posts/' + this.bp_id + '", class="btn btn-primary">Read Full Post</a>' + '</div>' + '</div>' );
+        infowindow.setContent('<div class="row" id="info-window">' + '<div class="col-xs-4">' + '<img src="' + this.photo + '", class="img-responsive">' + '</div>' + '<div class="col-xs-8">' +  '<h4>' + this.title + '</h4>' + '<h2>' + this.bp_title + '</h2>' + '<a href="' + this.f_id + '", class="btn btn-primary">Read Full Post</a>' + '</div>' + '</div>' );
         infowindow.open(map,this);
       });
 

@@ -6,7 +6,7 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts.json
   def index
     @blog_posts = BlogPost.order(created_at: :desc)
-    @latlongarray = BlogPost.all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:small), blog_post.id, blog_post.title]}
+    @latlongarray = BlogPost.all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:small), blog_post.friendly_id, blog_post.title]}
   end
 
   def showusers
@@ -79,6 +79,6 @@ class BlogPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_post_params
-      params.require(:blog_post).permit(:title, :author, :blog_entry, :user_id, :photo, :address, :latitude, :longitude)
+      params.require(:blog_post).permit(:title, :author, :blog_entry, :user_id, :photo, :address, :latitude, :longitude, :friendly_id)
     end
 end
