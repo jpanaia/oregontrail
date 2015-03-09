@@ -45,6 +45,14 @@
 </div>
 <div class="container">
 	<div class="row">
+		<div class="col-md-4" id ="comments-form">
+			<% if user_signed_in? %>
+			  <h2>Talk to us...</h2>
+			  <%= render 'comments/form' %>
+			<% else %>
+			  <p style="margin-top:38px"><%= link_to "Sign in to leave a comment", new_user_session_path, class: "btn btn-primary btn-lg" %></p>
+			<% end %>
+		</div>
 		<div class="col-md-8">
 			<% if @blog_post.comments.count > 0 %>
 				<h2><%= @blog_post.comments.count %> Comments</h2>
@@ -76,14 +84,8 @@
 					<p>No comments yet. Be the first!</p>
 				</div>
 			<% end %>
-		</div>
-		<div class="col-md-4" id ="comments-form">
-		<% if user_signed_in? %>
-			  <h2>Talk to us...</h2>
-			  <%= render 'comments/form' %>
-			<% else %>
-			  <p><%= link_to "Sign in to leave a comment", new_user_session_path, class: "btn btn-primary btn-lg" %></p>
-			<% end %>
+
+		
 		</div>
 	</div>
 </div>
