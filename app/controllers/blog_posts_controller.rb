@@ -1,22 +1,27 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :map]
 
   # GET /blog_posts
   # GET /blog_posts.json
   def index
     @blog_posts = BlogPost.order(created_at: :desc)
-    @latlongarray = BlogPost.all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:small), blog_post.friendly_id, blog_post.title]}
+    # @latlongarray = BlogPost.all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:small), blog_post.friendly_id, blog_post.title]}
   end
 
   def showusers
     @users = User.all
   end
 
+  def map
+    @latlongarray = BlogPost.all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:small), blog_post.friendly_id, blog_post.title]}
+  end
+
   # GET /blog_posts/1
   # GET /blog_posts/1.json
   def show
     @blog_posts = BlogPost.all
+    @photo = Photo.new
     @comment = Comment.new
     @date = @blog_post.created_at.strftime('%B %e, %Y')
     @time = @blog_post.created_at.strftime('%-I:%M%P %Z')
