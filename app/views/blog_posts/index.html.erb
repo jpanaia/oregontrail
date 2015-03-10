@@ -6,7 +6,10 @@
           <%= link_to blog_post do %>
             <div class="well">
               <% if can? :update, blog_post %>
-                <p class="pull-right">       
+                <p class="pull-right">        
+                  <%= link_to blog_post, class: "btn btn-default" do %>
+                  <span class="glyphicon glyphicon-eye-open"></span> 
+                  <% end %> 
                   <%= link_to edit_blog_post_path(blog_post), class: "btn btn-default" do %>
                   <span class="glyphicon glyphicon-pencil"></span> 
                   <% end %> 
