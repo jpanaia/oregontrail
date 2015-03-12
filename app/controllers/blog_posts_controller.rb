@@ -6,7 +6,6 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts.json
   def index
     @blog_posts = BlogPost.order(created_at: :desc)
-    # @latlongarray = BlogPost.all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:small), blog_post.friendly_id, blog_post.title]}
   end
 
   def showusers
@@ -15,6 +14,22 @@ class BlogPostsController < ApplicationController
 
   def map
     @latlongarray = BlogPost.all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:small), blog_post.friendly_id, blog_post.title]}
+    response = HTTParty.get("https://api.instagram.com/v1/tags/ladiesintech/media/recent?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
+    response2 = HTTParty.get("https://api.instagram.com/v1/tags/ladiesintech?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
+    @count = response2["data"]["media_count"]
+
+    # @photos = []
+    # @links = []
+
+    @photo_hash = {}
+
+    i = 0
+    18.times do
+     # @photos = @photos.push(response["data"][i]["images"]["thumbnail"]["url"])
+     # @links = @links.push(response["data"][i]["link"])
+     @photo_hash[response["data"][i]["images"]["thumbnail"]["url"]] = response["data"][i]["link"]
+      i+=1
+    end
   end
 
   # GET /blog_posts/1
@@ -25,6 +40,7 @@ class BlogPostsController < ApplicationController
     @comment = Comment.new
     @date = @blog_post.created_at.strftime('%B %e, %Y')
     @time = @blog_post.created_at.strftime('%-I:%M%P %Z')
+
   end
 
   # GET /blog_posts/new

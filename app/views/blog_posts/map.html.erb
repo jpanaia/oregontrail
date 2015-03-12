@@ -1,15 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
       <h2>Howdy</h2>
       <p>Thanks for dropping by! Click on any of the pins below to start reading updates from the girls.</p>
+      <div id="map-all"></div>
+    </div>
+    <div class="col-md-3">
+      <h2>Latest Pics</h2>
+      <p>Check out our Instagram pics.</p>
+      <div class="row">
+        <% @photo_hash.each do |photo, link| %>
+          <div class="col-sm-4">
+            <a href="<%= link %>" target="_blank"><img src ='<%= photo %>' class="img-responsive"></a><br/>
+          </div>
+        <% end %>
+        <%#= @photo_hash %>
+       </div>
     </div>
   </div>
-  <div id="map-all"></div>
 </div>
 
+
 <%= javascript_tag do %>    
-  sites= <%=raw @latlongarray %>; 
+  sites= <%= raw @latlongarray %>; 
 <% end %>
 
 <script>

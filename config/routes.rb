@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   root "blog_posts#map"
   get "allusers" => "blog_posts#showusers"
+  get "insta" => "blog_posts#instaphotos"
 end
