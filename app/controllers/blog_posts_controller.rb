@@ -14,8 +14,8 @@ class BlogPostsController < ApplicationController
 
   def map
     @latlongarray = BlogPost.all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:small), blog_post.friendly_id, blog_post.title]}
-    response = HTTParty.get("https://api.instagram.com/v1/tags/ladiesintech/media/recent?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
-    response2 = HTTParty.get("https://api.instagram.com/v1/tags/ladiesintech?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
+    response = HTTParty.get("https://api.instagram.com/v1/tags/oregontrailblog/media/recent?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
+    response2 = HTTParty.get("https://api.instagram.com/v1/tags/oregontrailblog?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
     @count = response2["data"]["media_count"]
 
     # @photos = []
@@ -24,12 +24,19 @@ class BlogPostsController < ApplicationController
     @photo_hash = {}
 
     i = 0
-    18.times do
+    if @count < 18
+      @count.times do
+        @photo_hash[response["data"][i]["images"]["thumbnail"]["url"]] = response["data"][i]["link"]
+        i+=1
+      end
+    else
+      18.times do
      # @photos = @photos.push(response["data"][i]["images"]["thumbnail"]["url"])
      # @links = @links.push(response["data"][i]["link"])
-     @photo_hash[response["data"][i]["images"]["thumbnail"]["url"]] = response["data"][i]["link"]
+      @photo_hash[response["data"][i]["images"]["thumbnail"]["url"]] = response["data"][i]["link"]
       i+=1
     end
+  end
   end
 
   # GET /blog_posts/1
