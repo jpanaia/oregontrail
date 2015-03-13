@@ -1,6 +1,8 @@
+<div id="map-canvas"></div>
+
 <div class="container" id="blog-post-show">
   <div class="row">
-		<div class="col-sm-8">
+		<div class="col-sm-8" >
 			<p class="pull-right">
 				<% if can? :update, @blog_post %>
 					<%= link_to edit_blog_post_path(@blog_post), class: "btn btn-default" do %>
@@ -18,43 +20,41 @@
 		  <div id="blog-content">
 		  	<%= @blog_post.blog_entry.html_safe %>
 		  </div>
-		  <hr/>
-      <div class="row">
-      	<div class="col-sm-6">
+		</div>
+		<div class="col-sm-4">  
+		  <% if @blog_post.photos.exists? %>
+		    <% @blog_post.photos.each do |photo| %>
+		      <a href= "<%=photo.photo.url%>" class= "fancybox" rel ="gallery1", title= "<%=photo.caption%>">
+		      <%= image_tag photo.photo.url(:thumb), alt: photo.title, title: photo.caption %>
+		      </a>
+		      <% if can? :update, @blog_post %>
+		        <%= link_to photo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+		         <span class="glyphicon glyphicon-trash"></span> 
+		        <% end %>
+		      <% end %>
+		    <% end %>
+		  <% end %>
+	  </div>
+	</div>
+	<div class="row">
+    <div class="col-sm-6">
 		  <% if @blog_post.id != @blog_posts.first.id %>
 		    <%= link_to blog_post_path(id: @blog_post.prev) do %>
 		      <span class="fa fa-hand-o-left"></span> <%=@blog_post.prev.title %> 
 		    <% end %>
 		  <% end %>
-        </div>
-        <div class="col-sm-6">
-		    <% if @blog_post.id != @blog_posts.last.id %>
-			    <%= link_to blog_post_path(id: @blog_post.next) do %>
-			     <%=@blog_post.next.title %> <span class="fa fa-hand-o-right"></span> 
-			    <% end %>	
-			  <% end %>
-			</div>
-		  </div>
+    </div>
+    <div class="col-sm-6">
+		  <% if @blog_post.id != @blog_posts.last.id %>
+			  <%= link_to blog_post_path(id: @blog_post.next) do %>
+			    <%=@blog_post.next.title %> <span class="fa fa-hand-o-right"></span> 
+			  <% end %>	
+			<% end %>
 		</div>
-		<div class="col-sm-4">
-		  <div id="map-canvas"></div>
-
-		  <% if @blog_post.photos.exists? %>
-		    <% @blog_post.photos.each do |photo| %>
-		    <%= image_tag photo.photo.url(:medium), alt: photo.title %>
-			  <p><%= photo.caption %></p>
-		    <% end %>
-		  <% end %>
-
-		  <%# if @blog_post.photo.exists? %>
-			  <%#= image_tag @blog_post.photo.url(:large), class: "img-responsive" %>
-			<%# end %>
-	  </div>
 	</div>
-</div>
-<div class="container">
+
 	<div class="row">
-		<div class="col-md-4" id ="comments-form">
+		<div class="col-md-12" id ="comments-form">
 			<% if user_signed_in? %>
 			  <h2>Talk to us...</h2>
 			  <%= render 'comments/form' %>
@@ -62,7 +62,9 @@
 			  <p style="margin-top:38px"><%= link_to "Sign in to leave a comment", new_user_session_path, class: "btn btn-primary btn-lg" %></p>
 			<% end %>
 		</div>
-		<div class="col-md-8">
+	</div>
+	<div class="row">
+		<div class="col-md-12">
 			<% if @blog_post.comments.count > 0 %>
 				<h2><%= @blog_post.comments.count %> Comments</h2>
 				<div id="comments-show">
@@ -98,7 +100,6 @@
 		</div>
 	</div>
 </div>
-
 <%= javascript_tag do %>
    latitude = '<%= j @blog_post.latitude.to_s %>';
    longitude = '<%= j @blog_post.longitude.to_s %>';

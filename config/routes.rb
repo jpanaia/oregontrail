@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  resources :photos
-
   devise_for :users
   resources :comments
+  resources :photos
   resources :blog_posts
 
-  root "blog_posts#map"
+  root "blog_posts#index"
   get "allusers" => "blog_posts#showusers"
-  get "insta" => "blog_posts#instaphotos"
 end

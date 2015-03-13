@@ -6,37 +6,35 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts.json
   def index
     @blog_posts = BlogPost.order(created_at: :desc)
-  end
-
-  def showusers
-    @users = User.all
-  end
-
-  def map
     @latlongarray = BlogPost.all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:small), blog_post.friendly_id, blog_post.title]}
-    response = HTTParty.get("https://api.instagram.com/v1/tags/oregontrailblog/media/recent?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
-    response2 = HTTParty.get("https://api.instagram.com/v1/tags/oregontrailblog?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
+    response = HTTParty.get("https://api.instagram.com/v1/tags/oregontrailgirls/media/recent?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
+    response2 = HTTParty.get("https://api.instagram.com/v1/tags/oregontrailgirls?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
     @count = response2["data"]["media_count"]
+    # @link = response["data"][i]["link"]
 
     # @photos = []
-    # @links = []
+    @links = []
 
     @photo_hash = {}
 
     i = 0
     if @count < 18
       @count.times do
-        @photo_hash[response["data"][i]["images"]["thumbnail"]["url"]] = response["data"][i]["link"]
+        @photo_hash[response["data"][i]["images"]["standard_resolution"]["url"]] = response["data"][i]["caption"]["text"]
         i+=1
       end
     else
       18.times do
      # @photos = @photos.push(response["data"][i]["images"]["thumbnail"]["url"])
-     # @links = @links.push(response["data"][i]["link"])
-      @photo_hash[response["data"][i]["images"]["thumbnail"]["url"]] = response["data"][i]["link"]
+      @links = @links.push(response["data"][i]["link"])
+      @photo_hash[response["data"][i]["images"]["standard_resolution"]["url"]] = response["data"][i]["caption"]["text"]
       i+=1
     end
   end
+  end
+
+  def showusers
+    @users = User.all
   end
 
   # GET /blog_posts/1

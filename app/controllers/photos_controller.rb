@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /photos
   # GET /photos.json
@@ -56,7 +57,7 @@ class PhotosController < ApplicationController
   def destroy
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to photos_url, notice: 'Photo was successfully destroyed.' }
+      format.html { redirect_to blog_post_path(id: @photo.blog_post_id), notice: 'Photo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

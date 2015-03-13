@@ -1,18 +1,8 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require_tree .
  *= require font-awesome
  *= require rails_bootstrap_forms
+ *= require fancybox
  *= require_self
  */
 
@@ -83,7 +73,7 @@ a.btn-primary:hover
 
 .container
   padding-top: 25px
-  padding-bottom: 10px   
+  // padding-bottom: 10px   
   
 .cant-see-me
   display: none
@@ -93,7 +83,7 @@ a.btn-primary:hover
 header
   text-align: center
   background: #fff
-  padding: 20px 0 10px
+  padding: 50px 0 40px
   h1
     margin-bottom: -5px
     margin-top: 0
@@ -177,15 +167,17 @@ footer
 #map-canvas
   width: 100%
   height: 200px
-  margin-bottom: 20px
+  // margin-bottom: 20px
 
 #map-all
   width: 100%
   height: 515px
-  // margin-bottom: 20px
-  border: 2px solid #0080AF
+  margin-bottom: 20px
+  // border: 2px solid #0080AF
 
 ///////* Homepage */////////
+#insta 
+  background: white
 
 #blog-index
   .well
@@ -250,16 +242,15 @@ footer
       margin-bottom: 25px
   a:hover
     color: $light-blue
-  .col-sm-8
-    .col-sm-6
-      a 
-        color: $light-blue
-        font-size: 0.9em
-        text-transform: uppercase
-      a:hover 
-        color: $primary-color
-    .col-sm-6:last-child
-      text-align: right
+  .col-sm-6
+    a 
+      color: $light-blue
+      font-size: 0.9em
+      text-transform: uppercase
+    a:hover 
+      color: $primary-color
+  .col-sm-6:last-child
+    text-align: right
 
 
 #comments-form
@@ -351,3 +342,8 @@ input[type="file"]
     padding: 5px
   ul li 
     list-style: square
+
+///////////* Fancy Box */////////////
+
+.fancybox-close:hover, .fancybox-next:hover, .fancybox-prev:hover
+  border-bottom: none
