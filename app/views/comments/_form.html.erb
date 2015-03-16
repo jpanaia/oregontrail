@@ -13,13 +13,12 @@
 
   <div class="form-group">
     <%= f.label :comment_entry, class:"sr-only" %>
-    <%= f.text_area :comment_entry, class: "form-control", placeholder: "Enter your comment here, but keep it clean. My grandmother is reading this!", rows: 1  , required: "required" %>
+    <%= f.text_area :comment_entry, class: "form-control", placeholder: "Write your comment here!", rows: 1  , required: "required" %>
   </div>
   <div class="cant-see-me">
     <%= f.number_field :blog_post_id, value: @blog_post.id %>
     <%= f.number_field :user_id, value: current_user.id %>
   </div>
-  <div class="actions">
     <%= f.submit "Add a Comment", class: "btn btn-primary btn-lg"%>
-  </div>
+
 <% end %>

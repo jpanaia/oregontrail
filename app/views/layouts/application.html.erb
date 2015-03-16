@@ -8,7 +8,8 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['google_api_key']}" %>
-   <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Maiden+Orange|Ubuntu:400,700' %>
+   <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Arbutus+Slab|Ubuntu:300,400,700' %>
+
    <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -22,10 +23,11 @@
 <body>
 
 <header>
-   <h1> <%#= image_tag "wagon.png", width: "60px", style: "display:inline" %>
-   <%= link_to root_path do %><i class="fa fa-car"></i> Oregon Trail <!-- <i class="fa fa-twitter"></i><i class="fa fa-facebook"></i> --></h1>
-   <p>The adventures of 2 girls and 2 dogs traveling from Atlanta to Portland.</p>
-   <% end %>
+   <h1> 
+   <%#= link_to root_path do %> 
+     <!-- <i class="fa fa-car"></i> --><%#= image_tag "wagon.png", width: "60px", style: "display:inline" %> Oregon Trail</h1>
+   <p>The adventures of 2 girls and 2 dogs headed to Portland</p>
+   <%# end %>
 </header>
 
   <nav class="navbar navbar-default">
@@ -57,7 +59,8 @@
           </li>
         <% end %>
           <% if user_signed_in? %>
-            <li>Welcome, <%= current_user.username%>! <%= link_to "Edit Profile", edit_user_registration_path %> | <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            <li><!--Hi <%#= current_user.username%>!--> <%= link_to "Edit Profile", edit_user_registration_path %> 
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           <% else %>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
             <li><%= link_to "Sign In", new_user_session_path %></li>

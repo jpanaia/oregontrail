@@ -19,10 +19,27 @@
 			</h3>
 		  <div id="blog-content">
 		  	<%= @blog_post.blog_entry.html_safe %>
+		  	<div class="row">
+			    <div class="col-sm-6">
+					  <% if @blog_post.id != @blog_posts.first.id %>
+					    <%= link_to blog_post_path(id: @blog_post.prev) do %>
+					      <span class="fa fa-hand-o-left"></span> <%=@blog_post.prev.title %> 
+					    <% end %>
+					  <% end %>
+			    </div>
+			    <div class="col-sm-6">
+					  <% if @blog_post.id != @blog_posts.last.id %>
+						  <%= link_to blog_post_path(id: @blog_post.next) do %>
+						    <%=@blog_post.next.title %> <span class="fa fa-hand-o-right"></span> 
+						  <% end %>	
+						<% end %>
+					</div>
+				</div>
 		  </div>
 		</div>
 		<div class="col-sm-4">  
 		  <% if @blog_post.photos.exists? %>
+		    <h3>Photos from <%=@blog_post.address %></h3>
 		    <% @blog_post.photos.each do |photo| %>
 		      <a href= "<%=photo.photo.url%>" class= "fancybox" rel ="gallery1", title= "<%=photo.caption%>">
 		      <%= image_tag photo.photo.url(:thumb), alt: photo.title, title: photo.caption %>
@@ -36,37 +53,25 @@
 		  <% end %>
 	  </div>
 	</div>
-	<div class="row">
-    <div class="col-sm-6">
-		  <% if @blog_post.id != @blog_posts.first.id %>
-		    <%= link_to blog_post_path(id: @blog_post.prev) do %>
-		      <span class="fa fa-hand-o-left"></span> <%=@blog_post.prev.title %> 
-		    <% end %>
-		  <% end %>
-    </div>
-    <div class="col-sm-6">
-		  <% if @blog_post.id != @blog_posts.last.id %>
-			  <%= link_to blog_post_path(id: @blog_post.next) do %>
-			    <%=@blog_post.next.title %> <span class="fa fa-hand-o-right"></span> 
-			  <% end %>	
-			<% end %>
-		</div>
-	</div>
+</div>
 
+<div class="container" id="comments-form">
 	<div class="row">
-		<div class="col-md-12" id ="comments-form">
+		<div class="col-md-12">
 			<% if user_signed_in? %>
-			  <h2>Talk to us...</h2>
+			  <h3>Talk to us <%= current_user.username %></h3>
 			  <%= render 'comments/form' %>
 			<% else %>
 			  <p style="margin-top:38px"><%= link_to "Sign in to leave a comment", new_user_session_path, class: "btn btn-primary btn-lg" %></p>
 			<% end %>
 		</div>
 	</div>
+</div>
+<div class="container" id="comments-list">
 	<div class="row">
 		<div class="col-md-12">
 			<% if @blog_post.comments.count > 0 %>
-				<h2><%= @blog_post.comments.count %> Comments</h2>
+				<h3><%= @blog_post.comments.count %> Comments</h3>
 				<div id="comments-show">
 					<% @blog_post.comments.order(created_at: :desc).each do |comment| %>
 					  <div class="row">
@@ -90,7 +95,7 @@
 					<% end %>
 				</div>
 			<% else %>
-				<h2>No Comments</h2>
+				<h3>No Comments</h3>
 				<div id="comments-show">
 					<p>No comments yet. Be the first!</p>
 				</div>
@@ -113,7 +118,7 @@ function initialize() {
     var myLatlng = new google.maps.LatLng(latitude,longitude);
 
     var mapOptions = {
-       zoom: 5,
+       zoom: 10,
        scrollwheel: false,   
        center: myLatlng
     }
