@@ -45,7 +45,7 @@ class BlogPostsController < ApplicationController
     @comment = Comment.new
     @date = @blog_post.created_at.strftime('%B %e, %Y')
     @time = @blog_post.created_at.strftime('%-I:%M%P %Z')
-
+    @first_photo = @blog_post.photos.first
   end
 
   # GET /blog_posts/new
