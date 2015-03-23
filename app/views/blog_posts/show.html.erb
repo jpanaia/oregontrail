@@ -17,8 +17,12 @@
 			<h3 class="byline">
 				<%= image_tag @blog_post.user.avatar.url(:thumb) if @blog_post.user.avatar.exists? %><%= @blog_post.user.username %>
 			</h3>
-
+       <% if @blog_post.photos.exists? %>
 				<%= awesome_share_buttons(@blog_post.title, :url => "https://oregontrail.herokuapp.com/blog_posts/#{@blog_post.friendly_id}", :image => @first_photo.photo.url) %>
+			 <% else %>
+					<%= awesome_share_buttons(@blog_post.title, :url => "https://oregontrail.herokuapp.com/blog_posts/#{@blog_post.friendly_id}") %>
+			 <% end %>
+
 		  <div id="blog-content">
 		  	<%= @blog_post.blog_entry.html_safe %>
 		  	<div class="row">
