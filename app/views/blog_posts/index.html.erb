@@ -52,7 +52,8 @@ function initialize() {
   var mapOptions = {
     zoom: 15,
     scrollwheel: false,   
-    center: new google.maps.LatLng(42.35804, -71.057329)
+    center: new google.maps.LatLng(42.35804, -71.057329),
+    draggable: false
   }
 
     var map = new google.maps.Map(document.getElementById('map-all'), mapOptions);

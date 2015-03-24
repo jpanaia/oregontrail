@@ -2,7 +2,6 @@
  *= require_tree .
  *= require font-awesome
  *= require rails_bootstrap_forms
- *= require fancybox
  *= require awesome-share-buttons
  *= require_self
  */
@@ -393,10 +392,15 @@ input[type="file"]
 
 // Small devices (tablets, 768px and up) */
 @media (max-width: 480px)
+  #map-all
+    //display: none
+    // height: 300px
+@media (max-width: 667px)
+  #map-all
+    //display: none
+    height: 300px
   #map-canvas
     height: 150px
-  #map-all
-    display: none
   .navbar-nav > li
     padding: 0
   header
