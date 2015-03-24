@@ -43,8 +43,8 @@ class BlogPostsController < ApplicationController
     @blog_posts = BlogPost.all
     @photo = Photo.new
     @comment = Comment.new
-    @date = @blog_post.created_at.strftime('%B %e, %Y')
-    @time = @blog_post.created_at.strftime('%-I:%M%P %Z')
+    @post_date = @blog_post.created_at.strftime('%B %e, %Y')
+    @post_time = @blog_post.created_at.strftime('%-I:%M%P %Z')
     @first_photo = @blog_post.photos.first
   end
 
