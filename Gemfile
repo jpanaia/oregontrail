@@ -18,6 +18,7 @@ gem 'font-awesome-rails'
 gem 'jquery-validation-rails'
 gem 'friendly_id', '~> 5.1.0'
 gem 'httparty'
+gem 'fancybox2-rails', '~> 0.2.8'
 gem 'awesome-share-buttons', github: 'evansobkowicz/awesome-share-buttons'
 
 group :development, :test do
