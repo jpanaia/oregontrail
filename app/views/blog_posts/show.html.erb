@@ -48,6 +48,7 @@
 		    <h3>Photos from <%=@blog_post.address %></h3>
 		    <% @blog_post.photos.each do |photo| %>
 		      <a href= "<%=photo.photo.url%>" class= "fancybox" rel ="gallery1", title= "<%=photo.caption%>">
+
 		      <%= image_tag photo.photo.url(:thumb), alt: photo.title, title: photo.caption %>
 		      </a>
 		      <% if can? :update, @blog_post %>
