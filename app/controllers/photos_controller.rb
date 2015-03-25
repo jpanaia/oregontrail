@@ -6,11 +6,13 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.all
+    redirect_to blog_posts_path
   end
 
-  # GET /photos/1
-  # GET /photos/1.json
+  # # GET /photos/1
+  # # GET /photos/1.json
   def show
+    redirect_to blog_posts_path
   end
 
   # GET /photos/new
@@ -20,6 +22,7 @@ class PhotosController < ApplicationController
 
   # GET /photos/1/edit
   def edit
+     redirect_to blog_posts_path
   end
 
   # POST /photos
