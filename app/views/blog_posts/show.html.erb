@@ -43,21 +43,28 @@
 				</div>
 		  </div>
 		</div>
-		<div class="col-sm-4">  
-		  <% if @blog_post.photos.exists? %>
-		    <h3>Photos from <%=@blog_post.address %></h3>
-		    <% @blog_post.photos.each do |photo| %>
-		      <a href= "<%=photo.photo.url%>" class= "fancybox" rel ="gallery1", title= "<%=photo.caption%>">
+		<div class="col-sm-4"> 
 
-		      <%= image_tag photo.photo.url(:thumb), alt: photo.title, title: photo.caption %>
-		      </a>
-		      <% if can? :update, @blog_post %>
-		        <%= link_to photo, method: :delete, data: { confirm: 'Are you sure?' } do %>
-		         <span class="glyphicon glyphicon-trash"></span> 
-		        <% end %>
-		      <% end %>
+		  <% if @blog_post.photos.exists? %>
+   
+<!-- 		    <h3>Photos from <%#=@blog_post.address %></h3>
+ --> 		      <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+     
+ 				
+         <% @blog_post.photos.each do |photo| %>
+			    	<div class="box col-md-9 col-md-offset-2">
+				      <a href= "<%=photo.photo.url%>" class= "fancybox" rel ="gallery1", title= "<%=photo.caption%>">
+				      <%= image_tag photo.photo.url(:medium), alt: photo.title, title: photo.caption, class: "img-responsive" %>
+				      </a>
+				      <% if can? :update, @blog_post %>
+				        <%= link_to photo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+				         <span class="glyphicon glyphicon-trash"></span> 
+				        <% end %>
+				      <% end %>
+				    </div>
+				  <% end %>
 		    <% end %>
-		  <% end %>
+		  </div>
 	  </div>
 	</div>
 </div>
