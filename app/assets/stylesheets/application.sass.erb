@@ -4,13 +4,6 @@
  *= require rails_bootstrap_forms
  *= require fancybox
  *= require awesome-share-buttons
- *= require 'masonry/basic'
- *= require 'masonry/centered' 
- *= require 'masonry/fluid'
- *= require 'masonry/gutters'
- *= require 'masonry/infinitescroll'
- *= require 'masonry/right-to-left'
- *= require 'masonry/transitions'
  *= require_self
  */
 
@@ -59,11 +52,14 @@ a
   &:link, &:active, &:visited
     color: $primary-color
   &:hover
-    text-decoration: none
-    color: $light-blue
-    opacity: .6
+    text-decoration: underline
+    // color: $light-blue
+    // opacity: .6
 p
   line-height: 1.8em
+
+.cursive
+  font-family: 'Stalemate', cursive
 
 .btn
   text-transform: uppercase
@@ -211,6 +207,8 @@ footer
   background: white
 
 #blog-index
+  a:hover
+    text-decoration: none
   .well
     background-color: $light-blue
     border: 2px solid #1C8294
