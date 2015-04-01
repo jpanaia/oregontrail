@@ -16,17 +16,23 @@
 			<h4><%= @blog_post.address %></h4>
 		  <h2><%= @blog_post.title %></h2>
 			<h3><%= @post_date %> &nbsp; &nbsp;<%= @post_time %></h3>
-			<h3 class="byline">
-				<%= image_tag @blog_post.user.avatar.url(:thumb) if @blog_post.user.avatar.exists? %><%= @blog_post.user.username %>
-			</h3>
-       <% if @blog_post.photos.exists? %>
-       <!-- <p> <span class="cursive">Share on Social Media: </span> -->
-				<%= awesome_share_buttons(@blog_post.title, :url => "https://oregontrail.herokuapp.com/blog_posts/#{@blog_post.friendly_id}", :image => @first_photo.photo.url) %>
-			 <% else %>
-					<%= awesome_share_buttons(@blog_post.title, :url => "https://oregontrail.herokuapp.com/blog_posts/#{@blog_post.friendly_id}") %>
-				<!-- </p> -->
-			 <% end %>
+			<div class="row">
+				<div class="col-xs-6">
+					<h3 class="byline">
+				  <%= image_tag @blog_post.user.avatar.url(:thumb) if @blog_post.user.avatar.exists? %><%= @blog_post.user.username %>
+			    </h3>
+				</div>
+				<div class="col-xs-6" id="share-buttons">
+					<span class="cursive">Share this:</span>
 
+				  <% if @blog_post.photos.exists? %>   
+						<%= awesome_share_buttons(@blog_post.title, :url => "https://oregontrail.herokuapp.com/blog_posts/#{@blog_post.friendly_id}", :image => @first_photo.photo.url) %>
+					 <% else %>
+							<%= awesome_share_buttons(@blog_post.title, :url => "https://oregontrail.herokuapp.com/blog_posts/#{@blog_post.friendly_id}") %>
+					 </p> 
+					 <% end %>
+				</div>
+			</div>
 		  <div id="blog-content">
 		  	<%= @blog_post.blog_entry.html_safe %>
 		  	<div class="row">
