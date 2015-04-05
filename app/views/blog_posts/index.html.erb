@@ -64,7 +64,7 @@ function initialize() {
     {
       var p = sites[i];
       var latlng = new google.maps.LatLng(p[1], p[2]);
-      
+
       bounds.extend(latlng);
 
       var image = '<%= asset_path "portlandia2.png" %>'
@@ -80,10 +80,14 @@ function initialize() {
         animation: google.maps.Animation.DROP
       });
 
+      console.log(p[0])
+
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent('<div class="row" id="info-window">' + '<div class="col-xs-4">' + '<img src="' + this.photo + '", class="img-responsive">' + '</div>' + '<div class="col-xs-8">' +  '<h4>' + this.title + '</h4>' + '<h2>' + this.bp_title + '</h2>' + '<a href="blog_posts/' + this.f_id + '", class="btn btn-primary">Read Full Post</a>' + '</div>' + '</div>' );
         infowindow.open(map,this);
       });
+
+
 
       // '<div class="row" id="info-window">' + '<div class="col-xs-4">' + '<img src="' + this.photo + '", class="img-responsive">' + '</div>' + '<div class="col-xs-8">' + '<h4>' + this.title + '</h4>' + '<h2>' + this.bp_title + '</h2>' + '<p>' + this.bp + '</p>' + '<p><a href="/blog_posts/' + this.bp_id + ', class="btn btn-primary">' + "Read Full Post" + "</a></p>" + '<p></p>' + '</div>' + '</div>'
     

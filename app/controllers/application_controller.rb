@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # around_filter :with_timezone
+
+  # private
+
+  # def with_timezone
+  #   timezone = Time.find_zone(cookies[:timezone])
+  #   Time.use_zone(timezone) { yield }
+  # end
+
   protected
 
   def configure_permitted_parameters
