@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310011627) do
+ActiveRecord::Schema.define(version: 20150405205741) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150310011627) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "slug"
+    t.datetime "posted_at"
   end
 
   add_index "blog_posts", ["slug"], name: "index_blog_posts_on_slug", unique: true

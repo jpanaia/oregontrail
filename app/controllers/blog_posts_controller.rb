@@ -5,8 +5,8 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts
   # GET /blog_posts.json
   def index
-    @blog_posts = BlogPost.order(created_at: :desc)
-    @latlongarray = BlogPost.all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:small), blog_post.friendly_id, blog_post.title]}
+    @blog_posts = BlogPost.order(posted_at: :desc)
+    @latlongarray = BlogPost.order(posted_at: :desc).all.collect {|blog_post| [blog_post.address, blog_post.latitude, blog_post.longitude, blog_post.blog_entry[0..50], blog_post.photo.url(:small), blog_post.friendly_id, blog_post.title]}
     response = HTTParty.get("https://api.instagram.com/v1/tags/oregontrailgirls/media/recent?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
     response2 = HTTParty.get("https://api.instagram.com/v1/tags/oregontrailgirls?access_token=2682.bb484d1.e90b2e38118a40fcaa13186b24649df2")
     @count = response2["data"]["media_count"]
@@ -34,7 +34,7 @@ class BlogPostsController < ApplicationController
   end
 
   def showusers
-    @users = User.all
+    @users = User.all.order(created_at: :desc)
   end
 
   # GET /blog_posts/1
@@ -43,8 +43,8 @@ class BlogPostsController < ApplicationController
     @blog_posts = BlogPost.all
     @photo = Photo.new
     @comment = Comment.new
-    @post_date = @blog_post.created_at.strftime('%B %e, %Y')
-    @post_time = @blog_post.created_at.strftime('%-I:%M%P %Z')
+    @post_date = @blog_post.posted_at.strftime('%B %e, %Y')
+    @post_time = @blog_post.posted_at.strftime('%-I:%M%P %Z')
     @first_photo = @blog_post.photos.first
   end
 
@@ -105,6 +105,6 @@ class BlogPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_post_params
-      params.require(:blog_post).permit(:title, :author, :blog_entry, :user_id, :photo, :address, :latitude, :longitude, :friendly_id)
+      params.require(:blog_post).permit(:title, :author, :blog_entry, :user_id, :photo, :address, :latitude, :longitude, :friendly_id, :posted_at)
     end
 end
