@@ -17,6 +17,7 @@
 		  <h2><%= @blog_post.title %></h2>
 			<h3><%= @post_date %> &nbsp; &nbsp;<%= @post_time %></h3>
 			<div class="row">
+				<div class="col-md-12">
 					<h3 class="byline">
 				  <%= image_tag @blog_post.user.avatar.url(:thumb) if @blog_post.user.avatar.exists? %><%= @blog_post.user.username %>
 
@@ -29,6 +30,7 @@
 					 </p> 
 					 <% end %>
 			</div>
+		   </div>
 		  <div id="blog-content">
 		  	<%= @blog_post.blog_entry.html_safe %>
 		  	<div class="row">
